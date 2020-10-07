@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.util.MultiValueMap;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.example.textgen.WeightedDirectedGraph;
@@ -33,16 +36,20 @@ public class Controller {
   }
 
   @GetMapping(path="/sample") // Map ONLY POST Requests
-  public @ResponseBody String sample() {
+  public String sample() {
     return "Sample Connection";
   }
 
-  @PostMapping(path="/api/model") // Map ONLY POST Requests
-  public @ResponseBody String getModel(@RequestBody HashMap request) {
-    System.out.println("POST /api/model | " + request);
-    request.get("string");
-    request.get("length");
-    return this.graph.predictWord(30, "the");
+  @CrossOrigin(origins = "http://localhost:3000")
+  @RequestMapping(value="/api/model", method = RequestMethod.POST, consumes={"application/x-www-form-urlencoded"})
+  public Response getModel(@RequestBody MultiValueMap<String, String> reqBody) {
+    System.out.println("POST /api/model | " + reqBody);
+    Response res = new Response();
+    res.setLength(Integer.parseInt(reqBody.getFirst("length")));
+    res.setWord(reqBody.getFirst("string"));
+    String sentence = this.graph.predictWord(res.getLength(), res.getWord());
+    res.setSentence(sentence);
+    return res;
   }
 
 

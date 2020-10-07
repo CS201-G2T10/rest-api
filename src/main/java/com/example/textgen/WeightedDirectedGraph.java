@@ -140,9 +140,7 @@ public class WeightedDirectedGraph {
 
 
   public void saveGraph() {
-    
     try (PrintWriter writer = new PrintWriter(new File("test.csv"))) {
-
       StringBuilder sb = new StringBuilder();
       for (Node node : words) {
         sb.append(node.getWord() + ",");
@@ -154,11 +152,9 @@ public class WeightedDirectedGraph {
       }
       writer.write(sb.toString());
       System.out.println("done!");
-
     } catch (FileNotFoundException e) {
       System.out.println(e.getMessage());
     }
-
   }
 
   public void readGraph() {
