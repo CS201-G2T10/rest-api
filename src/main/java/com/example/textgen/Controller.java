@@ -1,4 +1,4 @@
-package com.example.demo.sample;
+package com.example.textgen;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,25 +21,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 import java.lang.IllegalArgumentException;
 
-import com.example.demo.sample.UserRepository;
-
 @RestController
-public class SampleController {
-  @Autowired
-  private UserService US;
+public class Controller {
 
-  @PostMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email) {
-    User n = new User();
-    n.setName(name);
-    n.setEmail(email);
-    US.save(n);
-    return "Saved";
-  }
-
-  @GetMapping(path="/all")
-  public @ResponseBody Iterable<User> getAllUsers() {
-    return US.findAll();
+  @GetMapping(path="/sample") // Map ONLY POST Requests
+  public @ResponseBody String sample () {
+    return "Sample Connextion";
   }
 
 }
