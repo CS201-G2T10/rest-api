@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import com.example.textgen.WeightedDirectedGraph;
 
 import org.springframework.beans.factory.annotation.Autowired;   
 
@@ -23,10 +24,26 @@ import java.lang.IllegalArgumentException;
 
 @RestController
 public class Controller {
+  WeightedDirectedGraph graph;
+
+  @Autowired
+  public Controller() {
+    this.graph = new WeightedDirectedGraph();
+    this.graph.readGraph();
+  }
 
   @GetMapping(path="/sample") // Map ONLY POST Requests
-  public @ResponseBody String sample () {
-    return "Sample Connextion";
+  public @ResponseBody String sample() {
+    return "Sample Connection";
   }
+
+  @PostMapping(path="/api/model") // Map ONLY POST Requests
+  public @ResponseBody String getModel(@RequestBody HashMap request) {
+    System.out.println("POST /api/model | " + request);
+    request.get("string");
+    request.get("length");
+    return this.graph.predictWord(30, "the");
+  }
+
 
 }
