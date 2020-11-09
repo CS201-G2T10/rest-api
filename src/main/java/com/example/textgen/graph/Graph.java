@@ -206,8 +206,8 @@ public class Graph {
   public String predict(String first, int num_words) {
     if (first == null) return "<Word Not Recognised>";
     first = first.trim();
-    // GraphNode node = this.dict.get(first.isEmpty() ? this.SOS : first);
-    GraphNode node = this.dict.get(this.SOS);
+    GraphNode node = this.dict.get(first.isBlank() ? this.SOS : first);
+    // GraphNode node = this.dict.get(this.SOS);
     if (node == null) return "<Word Not Recognised>";
     // === adding words into buffer ===
     StringBuilder buffer = new StringBuilder();
