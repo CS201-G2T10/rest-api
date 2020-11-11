@@ -21,9 +21,15 @@ public class Joke {
 
   public String getJoke() { return this.joke; }
   @JsonProperty("first_word")
-  public String getFirstWord() { return this.firstWord; }
+  public String getFirstWord() {
+    if (this.firstWord == null || this.firstWord.trim().isBlank()) return "";
+    return this.firstWord.trim();
+  }
   @JsonProperty("max_length")
-  public Integer getMaxLength() { return this.maxLength; }
+  public Integer getMaxLength() {
+    if (this.maxLength == null) return 10;
+    return this.maxLength;
+  }
 
   public void setJoke(String joke) { this.joke = joke; }
   @JsonProperty("first_word")
