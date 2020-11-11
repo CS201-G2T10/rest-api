@@ -1,7 +1,7 @@
 # Text (Joke) Generator
 
 ### Running the Application
-* Running the Frontend
+* Running the Frontend (https://github.com/CS201-G2T10/platform-client.git)
 * Running the Backend
 ```
 ./mvnw spring-boot:run  // run REST api
