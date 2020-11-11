@@ -4,11 +4,8 @@
 * Compiles down predictions to a Range Tree (RBT) to improve time complexity of non greedy predictions
 
 <p align="center">
-  <img src="https://imgur.com/fOw9VDh.png" width="600" title="" style="box-shadow: 5px 10px #888888;">
-</p>
-<p align="center">
-  <img src="https://imgur.com/b0dxWG5.png" width="300" title="" style="box-shadow: 5px 10px #888888;">
-  <img src="https://imgur.com/gjx3nRe.png" width="300" title="" style="box-shadow: 5px 10px #888888;">
+  <img src="https://imgur.com/b0dxWG5.png" width="300" title="">
+  <img src="https://imgur.com/gjx3nRe.png" width="300" title="">
 </p>
 
 ### Running the Application
@@ -21,6 +18,11 @@ cd data
 javac ./ApiLoader.java  // Load data into REST API
 java ApiLoader
 ```
+
+### Text Generation Algorithm / Data Structure
+<p align="center">
+  <img src="https://imgur.com/fOw9VDh.png" width="400" title="">
+</p>
 
 ### API Documentation 
 * Runs on localhost:8080
