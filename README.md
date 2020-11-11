@@ -4,11 +4,11 @@
 * Compiles down predictions to a Range Tree (RBT) to improve time complexity of non greedy predictions
 
 <p align="center">
-  <img src="https://imgur.com/fOw9VDh.png" width="600" title="">
+  <img src="https://imgur.com/fOw9VDh.png" width="600" title="" style="box-shadow: 5px 10px #888888;">
 </p>
 <p align="center">
-  <img src="https://imgur.com/b0dxWG5.png" width="300" title="Text Gen image">
-  <img src="https://imgur.com/gjx3nRe.png" width="300" title="Text Gen image">
+  <img src="https://imgur.com/b0dxWG5.png" width="300" title="" style="box-shadow: 5px 10px #888888;">
+  <img src="https://imgur.com/gjx3nRe.png" width="300" title="" style="box-shadow: 5px 10px #888888;">
 </p>
 
 ### Running the Application
